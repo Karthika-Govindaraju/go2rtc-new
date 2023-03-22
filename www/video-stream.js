@@ -26,7 +26,7 @@ class VideoStream extends VideoRTC {
             position: relative;
         }
         .info {
-            position: absolute;
+            /*position: absolute;
             top: 0;
             left: 0;
             right: 0;
@@ -34,7 +34,8 @@ class VideoStream extends VideoRTC {
             color: white;
             display: flex;
             justify-content: space-between;
-            pointer-events: none;
+            pointer-events: none;*/
+			display:none;
         }
         </style>
         <div class="info">

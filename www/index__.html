@@ -17,7 +17,7 @@
 	html {
 	  overflow: auto;
 	  min-width: 1366px;
-	  /*min-height: 768px;*/
+	  min-height: 768px;
 	}
 
 	html, body {
@@ -106,29 +106,20 @@
 	  padding: 10px 0 0 10px;
 		color: whitesmoke;
 	}
-	
 	.grid_holder{
 	    width: calc(100% - 253px);
 	}
 	.grid-container{
-		width:100%;
+	    width: 100%;
 	}
 	.grid_item{
 		border:1px solid #818389;
 		display: inline-flex;
 		vertical-align: top;
-		background: #292d35;	
-		position:relative;		
+		background: #292d35;
 	}
 	.grid_item video{
 		object-fit: cover;
-	}
-	.grid_item .loading_container{
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		width:100%;
-		height:100%;
 	}
 	.main-header-container{
 		background-color:blue;
@@ -138,40 +129,19 @@
 	.itemDrag{
 		cursor:pointer;
 	}
-	#vms-layout-tabs-options {		
+	#vms-layout-tabs-options {
+		/*position: absolute;
+		top: 0;
+		height: 35px;*/
 		color: #d0d0cc;
-		padding: 5px 10px;		
+		padding: 5px 10px;
+		width: 100%;
 		display:flex;
 		background-color:#292d35; 
 	}
 	.layout{
 		padding:0 15px;
 		cursor:pointer;
-	}
-	.vms-display-layout-pane.removed {
-		display: none;
-		/*visibility: hidden;*/
-	}
-	.disabled{
-		opacity: 0.5;
-		cursor: default;		
-	}
-	.connecting{
-		color:whitesmoke;
-		position: absolute;
-		width: 100px;
-		margin: auto;
-		/*z-index: 4;*/
-		top: 0;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		/*border: 1px solid red;*/
-		height: 20px;
-	}	
-
-	.hideIt {
-		display: none;
 	}
     </style>
 </head>
@@ -193,13 +163,7 @@
 		</div>
 	</div>
 </header>
-<!--<div class="controls">
-    <button>stream - testing</button>
-    <label><input type="checkbox" name="webrtc" checked>webrtc - testing</label>
-    <label><input type="checkbox" name="mse" checked>mse  - testing</label>
-    <label><input type="checkbox" name="mp4" checked>mp4</label>
-    <label><input type="checkbox" name="mjpeg" checked>mjpeg</label>
-</div>-->
+
 <table id="streams1">
     <!--<thead>
     <tr>
@@ -215,7 +179,17 @@
 	<div class="hide" id="streams">
 		<div class="video_holder">
 			<div class="videoPanel">
-				<div id="videos_list" class="vms-resizable-panel left maximized">
+				<div class="vms-resizable-panel left maximized">
+				
+					<header class="vms-panel-header" id="vms-resource-panel-header">
+						<!--<i class="vms-panel-toggle-icon vicon-font v-collapse-left" data-panel-resizer="" data-action="minimize" data-panel-name="resources" should-be-open=""></i>-->
+						<div class="vms-resizable-panel-caption text-overflow" style="max-width: 120px; padding: 0px; color: rgb(199, 203, 209); font-weight: bold; direction: ltr;" data-language-aware="innertext" data-panel-resizer="" data-action="minimize" data-panel-name="resources" should-be-open="">Resources</div>
+						<!--<section id="vms-resource-grouping-container" sections-to-show="resources;groups" tree-mode="groupView">
+						<div data-language-aware="title" title="Grouped List" class="vms-resources-filter-options-button vicon-font v-list-tree active" id="monitoring-switch-to-tree-btn" ng-click="switchMode(treeState.groupView)" ng-show="sections.groups" role="button" tabindex="0" aria-hidden="false" style="direction: ltr;"></div>
+						<div data-language-aware="title" title="List By Type" class="vms-resources-filter-options-button vicon-font v-list-plain" id="monitoring-switch-to-accordion-btn" ng-click="switchMode(treeState.resourcesView)" ng-show="sections.resources" role="button" tabindex="0" aria-hidden="false" style="direction: ltr;"></div>-->
+						</section>
+					</header>
+					<div id="videos_list"></div>
 					
 				</div>
 				<div class="grid_holder">
@@ -226,10 +200,10 @@
 							<div class="layout layout_2X2" data-grid="2X2">2X2</div>
 						</div>
 					</header>
-					<div class="grid-container">							
+					<div class="grid-container">	
 					</div>
-				</div>
-				<div id="videos">
+					<div id="videos">
+					</div>
 				</div>
 			</div>
 		</div>
@@ -242,23 +216,15 @@
         '<a href="links.html?src={name}">links</a>',
         '<a href="#" data-name="{name}">delete</a>',
     ];*/
-	var gridAdded = false;
-	var current_grid = "";
 	const templates = [
         '<a href="stream.html?src={name}">stream</a>'
     ];
 	const streamurls = [
-        /*"rtsp://ADMIN:1234@69.74.63.73:554/stream1_1&resolution=1280x720",
+        "rtsp://ADMIN:1234@69.74.63.73:554/stream1_1",
         "rtsp://ADMIN:1234@69.74.63.73:554/stream1_2",
         "rtsp://ADMIN:1234@69.74.63.73:554/stream1_3",
 		"rtsp://172.20.1.38/ch1/stream1",
-		"rtsp://172.20.0.115/ch1/stream1",
-		"rtsp://172.20.0.81:554/live/main"*/
-		"rtsp://ADMIN:1234@69.74.63.73:554/stream1_1",
-        "rtsp://ADMIN:1234@69.74.63.73:554/stream1_2",
-        "rtsp://ADMIN:1234@69.74.63.73:554/stream1_3",
-		"rtsp://172.20.1.38/ch1/stream1",
-		"rtsp://172.20.0.115/ch1/stream1"		
+		"rtsp://172.20.0.115/ch1/stream1"
     ];
 	
 	
@@ -284,7 +250,33 @@
 			}
      //   });
 
+    /*document.querySelector(".controls > button")
+        .addEventListener("click", () => {
+            const url = new URL("stream.html", location.href);
+
+            const streams = document.querySelectorAll("#streams input");
+            streams.forEach(i => {
+                if (i.checked) url.searchParams.append("src", i.name);
+            });
+
+            if (!url.searchParams.has("src")) return;
+
+            let mode = document.querySelectorAll(".controls input");
+            mode = Array.from(mode).filter(i => i.checked).map(i => i.name).join(",");
+
+            window.location.href = `${url}&mode=${mode}`;
+        });*/
+
     
+    /*tbody.addEventListener("click", ev => {
+        if (ev.target.innerText !== "delete") return;
+
+        ev.preventDefault();
+
+        const url = new URL("api/streams", location.href);
+        url.searchParams.set("src", ev.target.dataset.name);
+        fetch(url, {method: "DELETE"}).then(reload);
+    });*/
 	
     function reload() {
         const url = new URL("api/streams", location.href);
@@ -302,7 +294,7 @@
 				const nameArr = name.split("/");
 				const streamName = nameArr[nameArr.length -1];
 				const displayName = (((nameArr[2].split("@")).length ==2)?(nameArr[2].split("@"))[1] : nameArr[2]) + (((streamName.split("_")).length == 2)? ("_"+(streamName.split("_"))[1]) : "");
-				//console.log(name.split("/"), ' : ', displayName);
+				console.log(name.split("/"), ' : ', displayName);
                 tr.dataset["id"] = name;
                 tr.innerHTML =
                     `<td><label><input type="checkbox" name="${name}">${name}</label></td>` +
@@ -311,7 +303,7 @@
                 //tbody.appendChild(tr);
 				
 				$("#videos_list").append(
-                    `<div class="itemDrag" data-id="${name}" data-displayname="${displayName}" >&nbsp;${displayName}</div>`                
+                    `<div class="itemDrag" data-id="${name}" >&nbsp;${displayName}</div>`                
                 );
 				
 				$(".itemDrag").draggable({
@@ -329,11 +321,10 @@
 						drop: function(event, ui) {
 							var drgID = ui.draggable.data("id");
 							var drpID = $(this).attr('id');
-							console.log('dropped here: ', drpID, ' > ', ui.draggable.data("displayname"), ' .. ', $(this).find('connecting'));
+							console.log('dropped here: ', drpID);
 							//console.log('drag - ', id, ' is dropped ', $(this).attr('id'));
 							//loadStream(drgID, drpID);
-							$(this).find('.connecting').removeClass('hideIt');
-							loadThisStream(drgID, drpID);
+							loading(drgID, drpID);
 						}
 				});
             }
@@ -346,9 +337,7 @@
        // info.innerText = `Version: ${data.version}, Config: ${data.config_path}`;
     });
 	//--------------------------
-	function loadThisStream(strURL, grid){
-		const theGrid = document.querySelector("#"+grid);
-		const loader = theGrid.querySelector('.loading_container');
+	function loading(strURL, grid){
 		/*
 		search::  ?src=rtsp%3A%2F%2FADMIN%3A1234%4069.74.63.73%3A554%2Fstream1_1
 		stream.html?src=rtsp%3A%2F%2FADMIN%3A1234%4069.74.63.73%3A554%2Fstream1_1:49 modes:  ['']
@@ -392,48 +381,31 @@
 		const width = "320px";//"1 0 " + (params.get("width") || "320px");
 		console.log('streams: ', streams);
 		
-		var _url;
 		const video = document.createElement("video-stream");
 			video.background = background;
 			//video.mode = webrtc,mse,mp4,mjpeg;//modes[i] || video.mode;
 			video.style.flex = width;
-			if(current_grid == '6X6'){
-			_url = streams[0] + '#resolution=960X760';
-			}else{
-			_url = streams[0] + '#resolution=1280x720';
-			}
 			video.src = new URL("api/ws?src=" + encodeURIComponent(streams[0]), location.href);
-			console.log('---- video details --- ',encodeURIComponent(streams[0]), ' >> ', streams[0]);
+			console.log('---- video details --- ')
 			console.log('background: ', video.background);
 			//console.log('mode: ', i, "/", modes[i],"/", video.mode);
 			console.log('src: ', video.src);
-		
-		//var header = "<div class="vms-player-tools flex-between"></div>";
-		const videoHeader = document.createElement("div");
 			
-		//theGrid.replaceChildren();
-		
-		const matches = theGrid.querySelectorAll("video-stream");
-		matches.forEach((match) => {
-			//deleteStream(match);
-			match.remove();
-		});	
-		
+		const theGrid = document.querySelector("#"+grid);
 		theGrid.appendChild(video);
 			//document.body.appendChild(video);
 		
 	}
 	function setupGrid(gridSize){
 		if(gridSize){
-			current_grid = gridSize;
 			hideChangeLayoutButton(gridSize);
 			createGrid(gridSize);
-			console.log('setupGrid called', gridSize);
 		}
 	}
 	function hideChangeLayoutButton(gridSize){
-		$('.layout').removeClass('disabled');
-		$('.layout_'+gridSize).addClass('disabled');		
+		$('.layout').show();
+		$('.layout_'+gridSize).hide();
+		console.log('hideChangebutton: ', gridSize);
 	}
 	$('.layout').click(function(){
 		console.log($(this).data('grid'));
@@ -450,48 +422,29 @@
 			var rowCount = Number(gridArr[1]);
 			var colCount = Number(gridArr[0]);
 			if(rowCount > 0 && colCount > 0){
+				$('.grid-container').empty();
 				let aspect_ratio = 3/5;
 				var gridItem_wid = Math.floor($('.grid-container').width() / rowCount)-2;
 				var gridItem_ht = Math.floor(gridItem_wid * aspect_ratio)-2;
-				console.log(gridAdded, 'crete grid called : ', gridSize, ' : ', $('#streams').width(), ' : ', $('.grid-container').width(), ' w ', gridItem_wid,  ' h ', gridItem_ht);	
-				if(!gridAdded){
-					$('.grid-container').empty();
-					for(var rr=0;rr<rowCount;rr++){
-							for(var cc=0;cc<colCount;cc++){
-								gridHtml+= '<div class="grid_item vms-display-layout-pane removed" id="grid_'+(rr+1)+'_'+(cc+1)+'" style="width:'+gridItem_wid+'px; height:'+gridItem_ht+'px;">';	
-								gridHtml+= '<div class="connecting hideIt">Connecting...</div>';
-//						<div class="loading_container hideIt">		</div>
-								gridHtml+= '</div>';
-							}
-					}
-					$('.grid-container').append(gridHtml);
-					gridAdded = true;
-				}else{
-					$('.grid_item').addClass('removed');
-					for(var rr=0;rr<rowCount;rr++){
-						for(var cc=0;cc<colCount;cc++){		
-							$('#grid_'+(rr+1)+'_'+(cc+1)).css('width', gridItem_wid+'px');				
-							$('#grid_'+(rr+1)+'_'+(cc+1)).css('height', gridItem_ht+'px');
-												
-							$('#grid_'+(rr+1)+'_'+(cc+1)).removeClass('removed');
+				console.log('crete grid called : ', gridSize, ' : ', $('#streams').width(), ' : ', $('.grid-container').width(), ' w ', gridItem_wid,  ' h ', gridItem_ht);			
+				
+				for(var rr=0;rr<rowCount;rr++){
+						for(var cc=0;cc<colCount;cc++){
+							gridHtml+= '<div class="grid_item" id="grid_'+(rr+1)+'_'+(cc+1)+'" style="width:'+gridItem_wid+'px; height:'+gridItem_ht+'px;">';
+							/*gridHtml+= '<video class="basevideo video_'+(rr+1)+'_'+(cc+1)+'" playsinline="" width="100%" height="100%"></video>';*/
+							gridHtml+= '</div>';
 						}
-					}
 				}
-			}			
+				$('.grid-container').append(gridHtml);
+			}
+			
 		}
 	}
 	//--------------------------
-	function init(gridSize){
-		reload();
-		addStreamList();
-		//Create required grid; - change layouts here
-		if(!gridAdded){
-			createGrid("6X6");
-		}
-		setupGrid(gridSize);
-	}
-	init("6X6");
-    
+    reload();
+	addStreamList();
+	//Create required grid; - change layouts here
+	setupGrid("6X6");
 </script>
 </body>
 </html>

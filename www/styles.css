@@ -1,0 +1,80 @@
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: white;
+}
+
+table {
+	background-color: white;
+	text-align: left;
+	border-collapse: collapse;
+}
+
+table td, table th {
+	border: 1px solid black;
+	padding: 5px 5px;
+}
+
+table tbody td {
+	font-size: 13px;
+}
+
+table thead {
+	background: #CFCFCF;
+	background: linear-gradient(to bottom, #dbdbdb 0%, #d3d3d3 66%, #CFCFCF 100%);
+	border-bottom: 3px solid black;
+}
+
+table thead th {
+	font-size: 15px;
+	font-weight: bold;
+	color: black;
+	text-align: center;
+}
+
+label {
+	display: flex;
+	align-items: center;
+}
+
+.header {
+	padding: 5px 5px;
+}
+
+.controls {
+	display: flex;
+	padding: 5px;
+}
+
+.controls > label {
+	margin-left: 10px;
+}
+.info{
+	display:none;
+}
+.video_holder,
+.video_holder .videoPanel,
+#streams{
+	padding:0;
+	margin:0;
+	width: 100%;
+}
+#streams{	
+	padding: 0 15px;
+}
+.videoPanel{
+	display:flex;
+	width: fit-content;
+}
+.vms-resizable-panel.maximized{
+	width: 253px;
+  top: 0px;
+  bottom: 10px;
+  /* bottom: 2px; #818389*/
+  background-color:#292d35; 
+  overflow: hidden;
+  min-width: 200px;
+}
+#videos_list .itemDrag{
+  padding: 10px 0 0 10px;
+	color: whitesmoke;
+}

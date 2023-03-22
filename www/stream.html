@@ -27,8 +27,9 @@
 <body>
 <script type="module" src="./video-stream.js"></script>
 <script type="module">
-    const params = new URLSearchParams(location.search);
-
+    console.log('search:: ', location.search)
+	const params = new URLSearchParams(location.search);
+	
     // support multiple streams and multiple modes
     const streams = params.getAll("src");
     const modes = params.getAll("mode");
@@ -44,10 +45,12 @@
     if (streams.length > 1) {
         document.body.className = "flex";
     }
-
+	
+	console.log('modes: ', modes);
+	
     const background = params.get("background") !== "false";
     const width = "1 0 " + (params.get("width") || "320px");
-
+	console.log('streams: ', streams);
     for (let i = 0; i < streams.length; i++) {
         /** @type {VideoStream} */
         const video = document.createElement("video-stream");
@@ -55,6 +58,10 @@
         video.mode = modes[i] || video.mode;
         video.style.flex = width;
         video.src = new URL("api/ws?src=" + encodeURIComponent(streams[i]), location.href);
+		console.log('---- video details --- ')
+		console.log('background: ', video.background);
+		console.log('mode: ', i, "/", modes[i],"/", video.mode);
+		console.log('src: ', video.src);
         document.body.appendChild(video);
     }
 </script>

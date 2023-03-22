@@ -10,6 +10,7 @@ a {
     text-decoration: none;
     font-family: 'Lora', serif;
     transition: .5s linear;
+	color: whitesmoke;
 }
 
 i {
@@ -42,6 +43,8 @@ nav li {
     display: inline;
 }
 </style>
+` + document.body.innerHTML;
+/*
 <nav>
     <ul>
         <li><a href="index.html">Streams</a></li>
@@ -49,5 +52,4 @@ nav li {
         <li><a href="homekit.html">HomeKit</a></li>
         <li><a href="editor.html">Config</a></li>
     </ul>
-</nav>
-` + document.body.innerHTML;
+</nav>*/
