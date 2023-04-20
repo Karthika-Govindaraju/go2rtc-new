@@ -5,178 +5,18 @@
     <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>go2rtc</title>
-	<link rel="stylesheet" type="text/css" src="css/main.css">
+    <title>go2rtc newfile</title>
+	
+	
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.min.css"/>	
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js" ></script>
 	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
-	<!--<link type="text/css" rel="stylesheet" src="css/main.css" />-->
-	
-    <style>
-	html {
-	  overflow: auto;
-	  min-width: 1366px;
-	  /*min-height: 768px;*/
-	}
-
-	html, body {
-	  width: 100%;
-	  height: 100%;
-	  margin:0;
-	  padding:0;
-	}
-	body {
-		font-family: Arial, Helvetica, sans-serif;
-		background-color: white;
-	}
-	.maincontainer{
-		width:100%;
-	}
-	
-	table {
-		background-color: white;
-		text-align: left;
-		border-collapse: collapse;
-	}
-
-	table td, table th {
-		border: 1px solid black;
-		padding: 5px 5px;
-	}
-
-	table tbody td {
-		font-size: 13px;
-	}
-
-	table thead {
-		background: #CFCFCF;
-		background: linear-gradient(to bottom, #dbdbdb 0%, #d3d3d3 66%, #CFCFCF 100%);
-		border-bottom: 3px solid black;
-	}
-
-	table thead th {
-		font-size: 15px;
-		font-weight: bold;
-		color: black;
-		text-align: center;
-	}
-
-	label {
-		display: flex;
-		align-items: center;
-	}
-
-	/*.header {
-		padding: 5px 5px;
-	}*/
-
-	/*.controls {
-		display: flex;
-		padding: 5px;
-	}
-
-	.controls > label {
-		margin-left: 10px;
-	}*/
-	.info{
-		display:none;
-	}
-	.video_holder,
-	.video_holder .videoPanel,
-	#streams{
-		padding:0;
-		margin:0;
-		width: 100%;
-	}	
-	.videoPanel{
-		display:flex;
-		width: fit-content;
-	}
-	.vms-resizable-panel.maximized{
-		width: 253px;
-	  top: 0px;
-	  bottom: 10px;
-	  /* bottom: 2px; #818389*/
-	  background-color:#292d35; 
-	  overflow: hidden;
-	  min-width: 200px;
-	}
-	#videos_list .itemDrag{
-	  padding: 10px 0 0 10px;
-		color: whitesmoke;
-	}
-	
-	.grid_holder{
-	    width: calc(100% - 253px);
-	}
-	.grid-container{
-		width:100%;
-	}
-	.grid_item{
-		border:1px solid #818389;
-		display: inline-flex;
-		vertical-align: top;
-		background: #292d35;	
-		position:relative;		
-	}
-	.grid_item video{
-		object-fit: cover;
-	}
-	.grid_item .loading_container{
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		width:100%;
-		height:100%;
-	}
-	.main-header-container{
-		background-color:blue;
-		padding: 10px 6px;
-		color: white;
-	}
-	.itemDrag{
-		cursor:pointer;
-	}
-	#vms-layout-tabs-options {		
-		color: #d0d0cc;
-		padding: 5px 10px;		
-		display:flex;
-		background-color:#292d35; 
-	}
-	.layout{
-		padding:0 15px;
-		cursor:pointer;
-	}
-	.vms-display-layout-pane.removed {
-		display: none;
-		/*visibility: hidden;*/
-	}
-	.disabled{
-		opacity: 0.5;
-		cursor: default;		
-	}
-	.connecting{
-		color:whitesmoke;
-		position: absolute;
-		width: 100px;
-		margin: auto;
-		/*z-index: 4;*/
-		top: 0;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		/*border: 1px solid red;*/
-		height: 20px;
-	}	
-
-	.hideIt {
-		display: none;
-	}
-    </style>
+	<link type="text/css" rel="stylesheet" href="css/main.css" />
 </head>
 <body>
-<script src="main.js"></script>
+<!--<script src="main.js"></script>-->
 <script type="module" src="video-stream.js"></script>
 <div class="info"></div>
 <div class="header">
@@ -185,15 +25,17 @@
 </div>
 <header class="main-header-container flex-between">
     <div class="flex-start">
-        <div class="main-header-item-container logo-container">            
-           <!--<img src="/images/logo_text_white_sm.png" style="width:auto;height:auto;margin-top: 6px;">-->
-		   Vicon Valerus
+        <div class="main-header-item-container logo-container">  
+			<img src="images/logo_text_white_sm.png" style="width:120px;height:40px;">	
+          
         </div>
 		<div class="main-header-item-container navigation-container" ng-controller="navController">
 		</div>
 	</div>
 </header>
-<!--<div class="controls">
+<!--
+
+<div class="controls">
     <button>stream - testing</button>
     <label><input type="checkbox" name="webrtc" checked>webrtc - testing</label>
     <label><input type="checkbox" name="mse" checked>mse  - testing</label>
@@ -247,35 +89,87 @@
 	const templates = [
         '<a href="stream.html?src={name}">stream</a>'
     ];
-	const streamurls = [
+	const streamurls1 = [
         /*"rtsp://ADMIN:1234@69.74.63.73:554/stream1_1&resolution=1280x720",
         "rtsp://ADMIN:1234@69.74.63.73:554/stream1_2",
         "rtsp://ADMIN:1234@69.74.63.73:554/stream1_3",
 		"rtsp://172.20.1.38/ch1/stream1",
 		"rtsp://172.20.0.115/ch1/stream1",
-		"rtsp://172.20.0.81:554/live/main"*/
+		"rtsp://172.20.0.81:554/live/main"
+		// new stream of Saranyu
+		"rtsp://ADMIN:1234@172.20.1.172:554/Profile/92b2150c-4896-45eb-b2a7-b674f03ef307"
+		// from AA
+		"rtsp://172.20.0.115/ch1/stream1"
+		*/
 		"rtsp://ADMIN:1234@69.74.63.73:554/stream1_1",
         "rtsp://ADMIN:1234@69.74.63.73:554/stream1_2",
         "rtsp://ADMIN:1234@69.74.63.73:554/stream1_3",
-		"rtsp://172.20.1.38/ch1/stream1",
-		"rtsp://172.20.0.115/ch1/stream1"		
+		"rtsp://172.20.1.38/ch1/stream1"		
     ];
-	
+	const streamurls = [
+		{
+			"id":"stream_1",
+			"url":"rtsp://ADMIN:1234@69.74.63.73:554/stream1_1",
+			"displayname":"69.74.63.73:554_1",
+			"username":"ADMIN",
+			"password":"1234",
+			"codec":"h264",
+			"resolution":"640X480",
+			"fps":"30fps"
+		},
+		{
+			"id":"stream_2",
+			"url":"rtsp://ADMIN:1234@69.74.63.73:554/stream1_2",
+			"displayname":"69.74.63.73:554_2",
+			"username":"ADMIN",
+			"password":"1234",
+			"codec":"h264",
+			"resolution":"640X480",
+			"fps":"30fps"
+		},
+		{
+			"id":"stream_3",
+			"url":"rtsp://ADMIN:1234@69.74.63.73:554/stream1_3",
+			"displayname":"69.74.63.73:554_3",
+			"username":"ADMIN",
+			"password":"1234",
+			"codec":"h264",
+			"resolution":"640X480",
+			"fps":"30fps"
+		},
+		{
+			"id":"stream_4",
+			"url":"rtsp://172.20.1.38/ch1/stream1",
+			"displayname":"172.20.1.38",
+			"username":"",
+			"password":"",
+			"codec":"h264",
+			"resolution":"2592x1520",
+			"fps":"30fps"
+		}		
+    ];
 	
 
 	//const tbody = document.querySelector("#streams > tbody");
     //document.querySelector("#add").addEventListener("click", () => {
 	function addStreamList(){
-		console.log(' >>> addStreamList() function  >>> ');
+		//console.log(' >>> addStreamList() function  >>> ');
             //const src = document.querySelector("#src");
             const url = new URL("api/streams", location.href);
-			if(streamurls.length > 0){
-                
+			let _body = JSON.stringify({
+			  title: 'foo',
+			  body: 'bar',
+			  userId: 1,
+			});
+			  const _headers = {
+			  'Content-type': 'application/json; charset=UTF-8',
+			};
+			if(streamurls.length > 0){                
                 streamurls.forEach(function(streamurl, index){
-                    console.log( streamurl+ ": url : "+index );
-                    if(streamurl){
-                        url.searchParams.set("src", streamurl);
-                        fetch(url, {method: "PUT"}).then(reload);
+                    //console.log( streamurl.url+ ": url : "+index );
+                    if(streamurl.url){					
+                        url.searchParams.set("src", streamurl.url);
+						fetch(url, {method: "PUT"}).then(reload);                        
                     }
                 });
             }
@@ -284,34 +178,54 @@
 			}
      //   });
 
-    
+    function removeCredentialsFromURL(obj){
+		var _urlToSend = 'none';
+		if(obj){
+			if(obj.url){
+				if(obj.username!="" && obj.username.trim().length >0){
+					if(obj.password!="" && obj.password.trim().length >0){	
+						//_urlToSend = (obj.url).substring(0, 7) + obj.username + ":"+obj.password+"@"+(obj.url).substring(7, (obj.url).length);
+						//"url":"rtsp://ADMIN:1234@69.74.63.73:554/stream1_3",
+						var stripLen = obj.username.length + obj.password.length + 2;
+						_urlToSend = (obj.url).substring(0, 7) + (obj.url).substring((7+stripLen), (obj.url).length);
+					}else{
+						_urlToSend = obj.url;
+					}
+				}else{
+					_urlToSend = obj.url;
+				}
+			}
+		}
+		return _urlToSend;
+	}
 	
     function reload() {
         const url = new URL("api/streams", location.href);
-        fetch(url, {cache: 'no-cache'}).then(r => r.json()).then(data => {
+		fetch(url, {cache: 'no-cache'}).then(r => r.json()).then(data => {
             //tbody.innerHTML = "";
 			$("#videos_list").empty();
+			//console.log('fetch : ', url, ' :data-new: ', data, ' > ', Object.entries(data));
             for (const [name, value] of Object.entries(data)) {
                 const online = value && value.consumers ? value.consumers.length : 0;
                 const src = encodeURIComponent(name);
                 const links = templates.map(link => {
                     return link.replace("{name}", src);
-                }).join(" ");
-
-                const tr = document.createElement("tr");
-				const nameArr = name.split("/");
-				const streamName = nameArr[nameArr.length -1];
-				const displayName = (((nameArr[2].split("@")).length ==2)?(nameArr[2].split("@"))[1] : nameArr[2]) + (((streamName.split("_")).length == 2)? ("_"+(streamName.split("_"))[1]) : "");
-				//console.log(name.split("/"), ' : ', displayName);
-                tr.dataset["id"] = name;
-                tr.innerHTML =
-                    `<td><label><input type="checkbox" name="${name}">${name}</label></td>` +
-                    `<td><a href="api/streams?src=${src}">${online} / info</a></td>` +
-                    `<td>${links}</td>`;
-                //tbody.appendChild(tr);
+                }).join(" ");				
 				
+				fetchedThis(name);
+            }
+        });
+    }
+	function fetchedThis(url){		
+		var ind = getTheObject("url", url);
+		//console.log('this is fetched : ', url, ' // ', ind);
+		if(ind != -1){
+			if(streamurls[ind]){
+				
+				var urlid = streamurls[ind].id;
+				var urlname = streamurls[ind].displayname
 				$("#videos_list").append(
-                    `<div class="itemDrag" data-id="${name}" data-displayname="${displayName}" >&nbsp;${displayName}</div>`                
+					`<div class="itemDrag" data-id="${urlid}">&nbsp;${urlname}</div>`                
                 );
 				
 				$(".itemDrag").draggable({
@@ -325,30 +239,152 @@
 					   //$("#remotevideo"+thisid).removeClass('hide');
 					 }
 				});
+				
 				$(".grid_item").droppable({
-						drop: function(event, ui) {
-							var drgID = ui.draggable.data("id");
-							var drpID = $(this).attr('id');
-							console.log('dropped here: ', drpID, ' > ', ui.draggable.data("displayname"), ' .. ', $(this).find('connecting'));
-							//console.log('drag - ', id, ' is dropped ', $(this).attr('id'));
-							//loadStream(drgID, drpID);
-							$(this).find('.connecting').removeClass('hideIt');
-							loadThisStream(drgID, drpID);
-						}
-				});
-            }
-        });
-    }
-
-    const url = new URL("api", location.href);
+					drop: function(event, ui) {
+						var drgID = ui.draggable.data("id");
+						var drpID = $(this).attr('id');
+						console.log('dropped here: ', drpID, ' > ', drgID, ' .. ', $(this).find('connecting'));
+					
+						$(this).find('.connecting').removeClass('hideIt');
+						loadThisStream(drgID, drpID);
+					}
+			});
+				
+			}
+		}
+	}
+	function getTheObject(cond, val){
+		var indx = -1;
+		if(streamurls.length > 0){                
+			for(var i=0;i<streamurls.length;i++){
+				if(cond == "id"){
+					if(streamurls[i].id == val){
+						indx = i;
+						break;
+					}		
+				}else{
+					if(streamurls[i].url == val){
+						indx = i;
+						break;
+					}
+				}
+			}
+		}
+		return indx;
+	}
+    /*const url = new URL("api", location.href);
     fetch(url, {cache: 'no-cache'}).then(r => r.json()).then(data => {
        // const info = document.querySelector(".info");
        // info.innerText = `Version: ${data.version}, Config: ${data.config_path}`;
-    });
+    });*/
 	//--------------------------
-	function loadThisStream(strURL, grid){
+	function loadThisStream(strID, grid){
 		const theGrid = document.querySelector("#"+grid);
 		const loader = theGrid.querySelector('.loading_container');
+		const theVideoWrap = theGrid.querySelector('.video_wrap');
+		if(strID){
+			var ind = getTheObject("id", strID);
+			if(ind != -1){
+				const strURL = streamurls[ind].url;
+				console.log('strURL:: ', strURL);
+				console.log('search:: ', location.search);
+				const params = new URLSearchParams(location.search);
+				
+				// support multiple streams and multiple modes
+				const streams = [];//params.getAll("src");rtsp://ADMIN:1234@69.74.63.73:554/stream1_1
+				if(strURL){
+					streams.push(strURL);
+				}
+				const modes = [];//params.getAll("mode");
+				if (modes.length === 0) modes.push("");
+
+				while (modes.length > streams.length) {
+					streams.push(streams[0]);
+				}
+				while (streams.length > modes.length) {
+					modes.push(modes[0]);
+				}
+
+				if (streams.length > 1) {
+					document.body.className = "flex";
+				}
+				
+				console.log('modes: ', modes);
+				
+				const background = true;//params.get("background") !== "false";
+				const width = "320px";//"1 0 " + (params.get("width") || "320px");
+				console.log('streams: ', streams);
+				
+				var _url;
+				const video = document.createElement("video-stream");
+					video.background = background;
+					//video.mode = webrtc,mse,mp4,mjpeg;//modes[i] || video.mode;
+					video.style.flex = width;
+					if(current_grid == '6X6'){
+					_url = streams[0] + '#resolution=960X760';
+					}else{
+					_url = streams[0] + '#resolution=1280x720';
+					}
+					video.src = new URL("api/ws?src=" + encodeURIComponent(_url), location.href);
+					console.log('---- video details --- ',encodeURIComponent(_url), ' >> ', streams[0]);
+					console.log('background: ', video.background);
+					//console.log('mode: ', i, "/", modes[i],"/", video.mode);
+					console.log('src: ', video.src);
+				
+				//var header = "<div class="vms-player-tools flex-between"></div>";
+				const videoHeader = theGrid.querySelector(".vms-player-tools");
+				videoHeader.classList.remove('hideIt');
+					
+				//theGrid.replaceChildren();		
+				
+				removeStreams(grid);
+				
+				theVideoWrap.appendChild(video);		
+				theGrid.addEventListener("mouseover", function(e){					
+					var infoPos ={y:($(this).position().top + $(this).outerHeight()), x:($(this).position().left)+ $(this).outerWidth()/2};	
+					var availWid = $('.grid-container').position().left + $('.grid-container').outerWidth();
+					var thsId = $(this).attr('id');
+					var thsRow = $(this).data('row');
+					
+					var streamObj = streamurls[ind];
+					var newurl = removeCredentialsFromURL(streamObj);					
+					var _info = newurl+((streamObj.codec!="") ? "<br>"+streamObj.codec :"")+((streamObj.resolution!="") ? "<br>"+streamObj.resolution :"")+((streamObj.fps!="") ? "<br>"+streamObj.fps :""); 			
+					$('.streaminfo').html(_info);
+					
+					//console.log('width--- ', (infoPos.x + $('.streaminfo').outerWidth()), '/', availWid);
+					removeInfoBoxBubbles();
+					if((infoPos.x + $('.streaminfo').outerWidth())> (availWid -10) ){
+						infoPos.x = ($(this).position().left - ($('.streaminfo').outerWidth() - $(this).outerWidth()/2));
+						$('.streaminfo').addClass('bubble_top_right');
+					}else{
+						$('.streaminfo').addClass('bubble_top_left');
+					}
+					if(Number(thsRow) == Number(current_grid.split('X')[1])){
+						infoPos.y = $(this).position().top - $('.streaminfo').outerHeight();
+						if($('.streaminfo').hasClass('bubble_top_right')){
+							removeInfoBoxBubbles();
+							$('.streaminfo').addClass('bubble_bottom_right');
+						}else if($('.streaminfo').hasClass('bubble_top_left')){
+							removeInfoBoxBubbles();
+							$('.streaminfo').addClass('bubble_bottom_left');
+						}
+					}
+					
+					$('.streaminfo').css({						
+						'top' : infoPos.y,
+						'left' : infoPos.x    
+						}).show();
+					
+				});
+				theGrid.addEventListener("mouseleave", function(){
+					hideInfoBox();
+				});
+				theGrid.addEventListener("mouseout", function(){
+					hideInfoBox();
+				});
+			}
+		}
 		/*
 		search::  ?src=rtsp%3A%2F%2FADMIN%3A1234%4069.74.63.73%3A554%2Fstream1_1
 		stream.html?src=rtsp%3A%2F%2FADMIN%3A1234%4069.74.63.73%3A554%2Fstream1_1:49 modes:  ['']
@@ -364,71 +400,39 @@
 		video-stream.js:67 stream.onmessge {type: 'mse', value: 'video/mp4; codecs="hvc1.1.6.L153.B0"'}
 		video-stream.js:67 stream.onmessge {type: 'error', value: 'webrtc/offer: codecs not match: H265,VND.ONVIF.METADATA'}
 		*/
-		console.log('search:: ', location.search)
-		const params = new URLSearchParams(location.search);
 		
-		// support multiple streams and multiple modes
-		const streams = [];//params.getAll("src");rtsp://ADMIN:1234@69.74.63.73:554/stream1_1
-		if(strURL){
-			streams.push(strURL);
-		}
-		const modes = [];//params.getAll("mode");
-		if (modes.length === 0) modes.push("");
-
-		while (modes.length > streams.length) {
-			streams.push(streams[0]);
-		}
-		while (streams.length > modes.length) {
-			modes.push(modes[0]);
-		}
-
-		if (streams.length > 1) {
-			document.body.className = "flex";
-		}
-		
-		console.log('modes: ', modes);
-		
-		const background = true;//params.get("background") !== "false";
-		const width = "320px";//"1 0 " + (params.get("width") || "320px");
-		console.log('streams: ', streams);
-		
-		var _url;
-		const video = document.createElement("video-stream");
-			video.background = background;
-			//video.mode = webrtc,mse,mp4,mjpeg;//modes[i] || video.mode;
-			video.style.flex = width;
-			if(current_grid == '6X6'){
-			_url = streams[0] + '#resolution=960X760';
-			}else{
-			_url = streams[0] + '#resolution=1280x720';
+	}
+	function removeInfoBoxBubbles(){
+		const $infobx = $('.streaminfo');
+		const infobxClassArr = $infobx.attr('class').split(' ');
+		if(infobxClassArr.length > 0){
+			for(var i=0; i<infobxClassArr.length;i++){
+				if(infobxClassArr[i].split('_')[0] == 'bubble'){
+					$infobx.removeClass(infobxClassArr[i]);
+					break;
+				}
 			}
-			video.src = new URL("api/ws?src=" + encodeURIComponent(streams[0]), location.href);
-			console.log('---- video details --- ',encodeURIComponent(streams[0]), ' >> ', streams[0]);
-			console.log('background: ', video.background);
-			//console.log('mode: ', i, "/", modes[i],"/", video.mode);
-			console.log('src: ', video.src);
+		}
 		
-		//var header = "<div class="vms-player-tools flex-between"></div>";
-		const videoHeader = document.createElement("div");
-			
-		//theGrid.replaceChildren();
-		
-		const matches = theGrid.querySelectorAll("video-stream");
-		matches.forEach((match) => {
-			//deleteStream(match);
-			match.remove();
-		});	
-		
-		theGrid.appendChild(video);
-			//document.body.appendChild(video);
-		
+	}
+	function hideInfoBox(){
+		$('.streaminfo').hide();
+	}
+	function removeStreams(grd){
+		if(grd){
+			const theGrid = document.querySelector("#"+grd);
+			const matches = theGrid.querySelectorAll("video-stream");
+			matches.forEach((match) => {
+				//deleteStream(match);
+				match.remove();
+			});
+		}		
 	}
 	function setupGrid(gridSize){
 		if(gridSize){
 			current_grid = gridSize;
 			hideChangeLayoutButton(gridSize);
 			createGrid(gridSize);
-			console.log('setupGrid called', gridSize);
 		}
 	}
 	function hideChangeLayoutButton(gridSize){
@@ -436,14 +440,13 @@
 		$('.layout_'+gridSize).addClass('disabled');		
 	}
 	$('.layout').click(function(){
-		console.log($(this).data('grid'));
 		var grd = $(this).data('grid');
 		if(grd){
+			hideInfoBox();
 			setupGrid(grd);
 		}
 	});
 	function createGrid(gridSize){
-
 		if(gridSize){
 			var gridArr = gridSize.split("X");
 			var gridHtml = '';
@@ -453,19 +456,41 @@
 				let aspect_ratio = 3/5;
 				var gridItem_wid = Math.floor($('.grid-container').width() / rowCount)-2;
 				var gridItem_ht = Math.floor(gridItem_wid * aspect_ratio)-2;
-				console.log(gridAdded, 'crete grid called : ', gridSize, ' : ', $('#streams').width(), ' : ', $('.grid-container').width(), ' w ', gridItem_wid,  ' h ', gridItem_ht);	
+				//console.log(gridAdded, 'crete grid called : ', gridSize, ' : ', $('#streams').width(), ' : ', $('.grid-container').width(), ' w ', gridItem_wid,  ' h ', gridItem_ht);	
 				if(!gridAdded){
 					$('.grid-container').empty();
 					for(var rr=0;rr<rowCount;rr++){
 							for(var cc=0;cc<colCount;cc++){
-								gridHtml+= '<div class="grid_item vms-display-layout-pane removed" id="grid_'+(rr+1)+'_'+(cc+1)+'" style="width:'+gridItem_wid+'px; height:'+gridItem_ht+'px;">';	
+								gridHtml+= '<div class="grid_item vms-display-layout-pane removed" id="grid_'+(rr+1)+'_'+(cc+1)+'" data-row="'+(rr+1)+'" data-column="'+(cc+1)+'" style="width:'+gridItem_wid+'px; height:'+gridItem_ht+'px;">';
 								gridHtml+= '<div class="connecting hideIt">Connecting...</div>';
-//						<div class="loading_container hideIt">		</div>
+								gridHtml+= '<div class="vms-player-tools flex-between hideIt"><div class="flex-end">';
+								gridHtml+= '<span class="vms-player-btn" title="Digital Zoom">';
+								gridHtml+= '<span class="vms-btn vicon-font v-zoom-mag"></span>';
+								gridHtml+= '</span>';
+								gridHtml+= '<span class="vms-btn vicon-font vms-btn-pane-closer">X</span>';
+								gridHtml+= '</div></div>';
+								gridHtml+= '<div class="video_wrap"></div>';
 								gridHtml+= '</div>';
 							}
 					}
+					gridHtml+= '<div class="streaminfo hideIt"></div>';
 					$('.grid-container').append(gridHtml);
 					gridAdded = true;
+					
+					var toolsElm = $('.vms-player-tools');
+					toolsElm.on('click', function(e){
+						var elmTarget = e.target;
+						var eventTarget = e.currentTarget;
+						var thisGrid = $(this).parent().attr('id');
+						console.log(' clicked', elmTarget,' : ', elmTarget.classList.contains("vms-btn-pane-closer") ,' : ', $(this).parent().attr('id'));
+						if(elmTarget.classList.contains("vms-btn-pane-closer")){
+							removeStreams(thisGrid);
+							$('#'+thisGrid).find('.connecting').addClass('hideIt');
+							$(this).addClass('hideIt');
+						}
+						
+					});
+					
 				}else{
 					$('.grid_item').addClass('removed');
 					for(var rr=0;rr<rowCount;rr++){
@@ -490,7 +515,7 @@
 		}
 		setupGrid(gridSize);
 	}
-	init("6X6");
+	init("2X2");
     
 </script>
 </body>
